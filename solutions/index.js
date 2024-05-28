@@ -1,7 +1,23 @@
 import { LinkedList } from './linked_list.js';
 
-const list = new LinkedList([1, 44, 4654, 16565.654]);
-list.append(6845);
-list.prepend('Daniel');
-
-console.log(list.toString());
+const list = new LinkedList([1, 2, 3, 'peanut', 'honey', 'oats']);
+console.log(`list: ${list.toString()}`);
+list.append(4);
+console.log(`append(4): ${list.toString()}`);
+list.prepend(0);
+console.log(`prepend(0): ${list.toString()}`);
+console.log(`list.size: ${list.size}`);
+console.log(`list.head: ${list.head}; list.head.value: ${list.head.value};`);
+console.log(`list.tail: ${list.tail}; list.tail.value: ${list.tail.value};`);
+console.log(`list.at(4).value: ${list.at(4).value}`);
+list.pop();
+console.log(`list.pop(): ${list.toString()}`);
+console.log(`list.contains('honey'): ${list.contains('honey')}`);
+console.log(`list.contains('mango'): ${list.contains('mango')}`);
+console.log(`list.find('oats'): ${list.find('oats')}`);
+console.log(`list.find('mango'): ${list.find('mango')}`);
+console.log(`list.: ${list.find('oats')}`);
+list.insertAt('mango', 4);
+console.log(`list.insertAt('mango', 4): ${list.toString()}`);
+list.removeAt(5);
+console.log(`list.removeAt(5): ${list.toString()}`);

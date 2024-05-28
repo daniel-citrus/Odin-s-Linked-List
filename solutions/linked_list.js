@@ -112,7 +112,7 @@ export class LinkedList {
 
     find(value) {
         if (!this.size) {
-            return false;
+            return null;
         }
 
         let ptr = this.head;
@@ -144,6 +144,31 @@ export class LinkedList {
     }
 
     insertAt(value, index) {
+        if (index === 0) {
+            this.#head = new Node(value, this.head);
+            return;
+        }
+
+        if (index > this.size) {
+            return;
+        }
+
+        let ptr = this.head;
+
+        for (let i = 0; i < index - 1; i++) {
+            ptr = ptr.next;
+        }
+
+        let temp = new Node(value, ptr.next);
+        ptr.next = temp;
+    }
+
+    removeAt(index) {
+        if (index === 0) {
+            this.#head = this.head.next;
+            return;
+        }
+
         if (index >= this.size) {
             return;
         }
@@ -153,8 +178,7 @@ export class LinkedList {
         for (let i = 0; i < index - 1; i++) {
             ptr = ptr.next;
         }
-    }
 
-    removeAt(index) {
-
+        ptr.next = ptr.next.next;
     }
+}
